@@ -3,18 +3,34 @@ import { onMounted, ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import gsap from 'gsap'
-
+import { CSSPlugin } from 'gsap/CSSPlugin';
 const container = ref(null);
 const content = ref(null);
 
+const title = ref(null);
+const paraOne = ref(null);
+const paraTwo = ref(null);
+const paraThree = ref(null);
+
+  /*gsap.fr  om(container.value, {*/
 onMounted(() => {
-  gsap.from(container.value, {
+  gsap.from(container.value.children, {
     delay: 0.5,
     duration: 1,
     y: '+100',
     autoAlpha: 0,
+    stagger: 0.25,
     ease: "back.out(1.7)",
   })
+
+  console.log(paraTwo.value);
+
+  const tl =gsap.timeline({ delay:1, paused: true});
+  tl.from(title.value, { x: '-200', autoAlpha: 0, duration: 1});
+  tl.from(paraOne.value, { x: '+200', autoAlpha: 0, duration: 1});
+  tl.from(paraTwo.value, { x: '-200', autoAlpha: 0, duration: 1});
+  tl.from(paraThree.value, { x: '+200', autoAlpha: 0, duration: 1}); 
+  tl.play();
 })
 </script>
 
@@ -25,8 +41,11 @@ onMounted(() => {
     <div ref="container" class="wrapper">
       <HelloWorld msg="You did it!" />
       <div ref="content">
-        <H1>Headline Goes Here Test</H1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, ab ex dolor aliquid iure quidem cum sunt possimus natus dolores eius officia reiciendis autem fugiat, voluptate perferendis a quas quasi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quae ad ut facilis excepturi dolorum distinctio magnam quibusdam laborum sequi similique, consequatur sapiente ratione explicabo ipsam libero? Aliquid, similique autem! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos labore repellat quidem inventore natus eveniet iusto mollitia tenetur est sit dolorem, saepe reiciendis molestias itaque quas voluptate autem tempore alias!</p>
+        <H1 ref="title">Headline Goes Here Test</H1>
+        <p ref="paraOne">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, ab ex dolor aliquid iure quidem cum sunt possimus natus dolores eius officia reiciendis autem fugiat, voluptate perferendis a quas quasi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quae ad ut facilis excepturi dolorum distinctio magnam quibusdam laborum sequi similique, consequatur sapiente ratione explicabo ipsam libero? Aliquid, similique autem! Lorem ipsum, dolor sit amet consectetur adipisicing elit.  </p>
+        <p ref="paraTwo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, ab ex dolor aliquid iure quidem cum sunt possimus natus dolores eius officia reiciendis autem fugiat, voluptate perferendis a quas quasi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quae ad ut facilis excepturi dolorum distinctio magnam quibusdam laborum sequi similique, consequatur sapiente ratione explicabo ipsam libero?  </p>
+        <p ref="paraThree">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, ab ex dolor aliquid iure quidem cum sunt possimus natus dolores eius officia reiciendis autem fugiat, voluptate perferendis a quas quasi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quae ad ut facilis excepturi dolorum distinctio magnam quibusdam laborum  alias!</p>
+      
       </div>
     </div>
   </header>
