@@ -25,7 +25,7 @@ onMounted(() => {
     <div ref="container" class="wrapper">
       <HelloWorld msg="You did it!" />
       <div ref="content">
-        <H1>Headline Goes Here</H1>
+        <H1>Headline Goes Here Test</H1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, ab ex dolor aliquid iure quidem cum sunt possimus natus dolores eius officia reiciendis autem fugiat, voluptate perferendis a quas quasi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quae ad ut facilis excepturi dolorum distinctio magnam quibusdam laborum sequi similique, consequatur sapiente ratione explicabo ipsam libero? Aliquid, similique autem! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos labore repellat quidem inventore natus eveniet iusto mollitia tenetur est sit dolorem, saepe reiciendis molestias itaque quas voluptate autem tempore alias!</p>
       </div>
     </div>
