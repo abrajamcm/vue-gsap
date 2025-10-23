@@ -14,7 +14,7 @@ const paraThree = ref(null);
 
   /*gsap.fr  om(container.value, {*/
 onMounted(() => {
-  gsap.from(container.value.children, {
+  gsap.from(container.value, {
     delay: 0.5,
     duration: 1,
     y: '+100',
